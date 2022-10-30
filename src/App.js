@@ -1,7 +1,10 @@
 import { useState } from "react";
+
+// Um einen Dispatch innerhalb dieser Datei auszugeben, muss die useDispatch Hook importiert werden.
+// Um auf einen State zugreifen zu können, muss die useSelector Hook importiert werden.
 import { useSelector, useDispatch } from "react-redux";
 
-// All diejenigen Reducer, auf die du Zugriff haben möchtest für einen dispatch, müssen zunächst importiert werden aus den dazugehörigen Slices:
+// All diejenigen Reducer, auf die du Zugriff haben möchtest für einen Dispatch, müssen zunächst aus den dazugehörigen Slices importiert werden:
 import {
   addiere1,
   subtrahiere1,
@@ -14,7 +17,7 @@ function App() {
   const [activityNameInput, setActivityNameInput] = useState("");
   const [activitySpaßInput, setActivitySpaßInput] = useState(0);
 
-  // Um einen dispatch auszugeben, muss auf die useDispatch-Hook zugegriffen werden, die von react-redux stammt.
+  // Um einen Dispatch auszugeben, muss auf die useDispatch-Hook zugegriffen werden, die von react-redux stammt.
   const dispatch = useDispatch();
 
   // Mittels der useSelector-Hook kann auf die Slices zugegriffen werden, die im store hinterlegt sind. Daran gekoppelt sind wiederum die aktuellen States.
@@ -27,10 +30,10 @@ function App() {
       return;
     }
 
-    // Hier wird ein dispatch ausgegeben, bei dem wir uns auf den Reducer "addActivity" beziehen. Sobald dieser dispatch rausgegangen ist, wird der dazugehörige State der Aktivitäten angepasst sein.
+    // Hier wird ein Dispatch ausgegeben, bei dem wir uns hier auf den Reducer "addActivity" beziehen. Sobald dieser Dispatch rausgegangen ist, wird der dazugehörige State (activitySlice) angepasst.
     dispatch(
       addActivity({
-        // Um eine besser nutzbare ID zu gewöhrleisten, nutze ich hier das aktuelle Datum in Sekunden - auch das ist nicht ideal, aber besser als der erste im Kurs vorgezeigte Ansatz
+        // Um eine besser nutzbare ID zu gewöhrleisten, nutze ich hier das aktuelle Datum in Sekunden - auch das ist nicht empfehlenswert, aber reicht in diesem Fall aus.
         id: `${activityNameInput} ${new Date().getSeconds()}`,
         name: activityNameInput,
         spaßLevel: activitySpaßInput,

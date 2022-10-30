@@ -5,6 +5,11 @@ export const numberSlice = createSlice({
   // Solltest du auf Probleme stoßen, dass ein Slice und/oder ein State des Slices nicht erkannt wird, kann es sich lohnen, einmal die Groß- und Kleinschreibung des Werts für "name" zu überprüfen.
   name: "numberReducers",
   initialState: { value: 1 },
+
+  // Im folgenden Schritt werden alle Reducer erstellt, die du für deine Anwendung einrichten möchtest.
+  // Beachte, dass innerhalb des Slices auch noch sogenannte Thunks eingebaut werden könnten, was im Udemy-Kurs allerdings nur ganz kurz am Ende angeschnitten wurde.
+  // action.payload entspricht jeweils dem Wert, der beim Dispatch als Parameter für den Reducer angegeben worden ist.
+  // state.value entspricht dem derzeitigen dazugehörigen state.
   reducers: {
     addiere1: (state, action) => {
       state.value += 1;
@@ -13,7 +18,6 @@ export const numberSlice = createSlice({
       state.value -= 1;
     },
     multipliziereMitAction: (state, action) => {
-      // action.payload nimmt den Wert an, der beim dispatch als Parameter für den Reducer angegeben worden ist.
       state.value *= action.payload;
     },
   },

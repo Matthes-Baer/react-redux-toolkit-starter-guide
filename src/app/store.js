@@ -1,3 +1,4 @@
+// Diese Funktion stammt vom React Redux Toolkit und vereinfacht die Erstellung des Redux Stores.
 import { configureStore } from "@reduxjs/toolkit";
 
 // All diejenigen Slices, die im Store hinterlegt werden sollen, müssen zunächst importiert werden.

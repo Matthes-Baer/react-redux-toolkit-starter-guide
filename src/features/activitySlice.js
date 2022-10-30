@@ -11,6 +11,11 @@ export const activitySlice = createSlice({
 
   // Der initialState wurde oben deklariert und initialisiert. Der folgende Ausdruck ist identisch zu "initialState: initialState"
   initialState,
+
+  // Im folgenden Schritt werden alle Reducer erstellt, die du für deine Anwendung einrichten möchtest.
+  // Beachte, dass innerhalb des Slices auch noch Thunks eingebaut werden könnten, was im Udemy-Kurs allerdings nur ganz kurz am Ende angeschnitten wurde.
+  // action.payload entspricht jeweils dem Wert, der beim Dispatch als Parameter für den Reducer angegeben worden ist.
+  // state.value entspricht dem derzeitigen dazugehörigen state.
   reducers: {
     addActivity: (state, action) => {
       state.value.push(action.payload);
@@ -23,7 +28,7 @@ export const activitySlice = createSlice({
         (activity) => activity.id == action.payload
       );
       state.value.splice(activityIndex, 1, {
-        // Es werden die aktuellen keys und values des Array-Elements (activity) kopiert, um dann spezifisch den Wert für spaßLevel anzupassen.
+        // Es werden die aktuellen keys und values des Array-Elements (activity) kopiert (spread operator), um dann spezifisch den Wert für spaßLevel anzupassen.
         ...activity,
         spaßLevel: +activity.spaßLevel + 1,
       });
