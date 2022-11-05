@@ -1,4 +1,4 @@
-// Es ist notwendig, createSlice zu importieren, um einen Slice mittels des React Redux Toolkit zu erstellen. Diese Funktion simplifiziert die Slice-Erstellung erheblich.
+// It is necessary to import createSlice to create a slice using the React Redux Toolkit. This function simplifies the slice creation considerably.
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -6,16 +6,16 @@ const initialState = {
 };
 
 export const activitySlice = createSlice({
-  // Solltest du auf Probleme stoßen, dass ein Slice und/oder ein State des Slices nicht erkannt wird, kann es sich lohnen, einmal die Groß- und Kleinschreibung des Werts für "name" zu überprüfen.
+  // If you encounter problems with a slice and/or a state of the slice not being recognised, it may be worthwhile to check the upper and lower case of the value for "name".
   name: "activityReducers",
 
-  // Der initialState wurde oben deklariert und initialisiert. Der folgende Ausdruck ist identisch zu "initialState: initialState"
+  // The initialState was declared and initialised above. The following expression is identical to "initialState: initialState".
   initialState,
 
-  // Im folgenden Schritt werden alle Reducer erstellt, die du für deine Anwendung einrichten möchtest.
-  // Beachte, dass innerhalb des Slices auch noch Thunks eingebaut werden könnten, was im Udemy-Kurs allerdings nur ganz kurz am Ende angeschnitten wurde.
-  // action.payload entspricht jeweils dem Wert, der beim Dispatch als Parameter für den Reducer angegeben worden ist.
-  // state.value entspricht dem derzeitigen dazugehörigen state.
+  // The following step creates all the reducers you want to set up for your application.
+  // Note that thunks could also be incorporated within the slice, but this was only touched on very briefly at the end of the Udemy course.
+  // action.payload corresponds to the value that was specified as a parameter for the reducer during dispatch.
+  // state.value corresponds to the current associated state.
   reducers: {
     addActivity: (state, action) => {
       state.value.push(action.payload);
@@ -28,7 +28,7 @@ export const activitySlice = createSlice({
         (activity) => activity.id == action.payload
       );
       state.value.splice(activityIndex, 1, {
-        // Es werden die aktuellen keys und values des Array-Elements (activity) kopiert (spread operator), um dann spezifisch den Wert für spaßLevel anzupassen.
+        // The current keys and values of the array element (activity) are copied (spread operator) in order to then specifically adjust the value for funLevel.
         ...activity,
         spaßLevel: +activity.spaßLevel + 1,
       });
@@ -36,8 +36,8 @@ export const activitySlice = createSlice({
   },
 });
 
-// Bei jedem Slice ist es vonnöten, dass die jeweiligen Reducer exportiert werden wie hier:
+// For each slice, it is necessary to export the respective reducers as shown here:
 export const { addActivity, changeActivity } = activitySlice.actions;
 
-// Außerdem muss der Slice selbst exportiert werden:
+// In addition, the slice itself must be exported:
 export default activitySlice.reducer;

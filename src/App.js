@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-// Um einen Dispatch innerhalb dieser Datei auszugeben, muss die useDispatch Hook importiert werden.
-// Um auf einen State zugreifen zu können, muss die useSelector Hook importiert werden.
+// To output a dispatch within this file, the useDispatch hook must be imported.
+// To access a state, the useSelector hook must be imported.
 import { useSelector, useDispatch } from "react-redux";
 
-// All diejenigen Reducer, auf die du Zugriff haben möchtest für einen Dispatch, müssen zunächst aus den dazugehörigen Slices importiert werden:
+// All those reducers that you want to have access to for a dispatch must first be imported from the corresponding slices:
 import {
   addiere1,
   subtrahiere1,
@@ -17,10 +17,10 @@ function App() {
   const [activityNameInput, setActivityNameInput] = useState("");
   const [activitySpaßInput, setActivitySpaßInput] = useState(0);
 
-  // Um einen Dispatch auszugeben, muss auf die useDispatch-Hook zugegriffen werden, die von react-redux stammt.
+  // To output a dispatch, the useDispatch hook must be accessed, which comes from react-redux.
   const dispatch = useDispatch();
 
-  // Mittels der useSelector-Hook kann auf die Slices zugegriffen werden, die im store hinterlegt sind. Daran gekoppelt sind wiederum die aktuellen States.
+  // The useSelector hook can be used to access the slices that are stored in the store. The current states are linked to that.
   const numberState = useSelector((state) => state.numberReducers.value);
   const activityState = useSelector((state) => state.activityReducers.value);
 
@@ -30,10 +30,10 @@ function App() {
       return;
     }
 
-    // Hier wird ein Dispatch ausgegeben, bei dem wir uns hier auf den Reducer "addActivity" beziehen. Sobald dieser Dispatch rausgegangen ist, wird der dazugehörige State (activitySlice) angepasst.
+    // A dispatch is issued here, where we refer to with the "addActivity" reducer. As soon as this dispatch has gone out, the associated state (activitySlice) is adjusted.
     dispatch(
       addActivity({
-        // Um eine besser nutzbare ID zu gewöhrleisten, nutze ich hier das aktuelle Datum in Sekunden - auch das ist nicht empfehlenswert, aber reicht in diesem Fall aus.
+        // To ensure a more usable ID, I use the current date in seconds here - this is also not recommended, but is sufficient in this case.
         id: `${activityNameInput} ${new Date().getSeconds()}`,
         name: activityNameInput,
         spaßLevel: activitySpaßInput,

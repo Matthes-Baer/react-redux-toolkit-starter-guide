@@ -4,10 +4,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
-// Es ist notwendig, dass unsere gesamte Anwendung mit einem Provider für Redux "umwickelt" wird. Hierfür benötigst du den Provider-Import von react-redux.
+// It is necessary to "wrap" our entire application with a provider for Redux. For this you need the provider import of react-redux.
 import { Provider } from "react-redux";
 
-// Dieser Provider erwartet einen Store als Angabe, wo du denjenigen Store angibst, den du in src/app/... erstellt hast (in diesem Fall src/app/store.js).
+// This provider expects a store as a specification, where you specify the store that you created in src/app/... (in this case src/app/store.js).
 import { store } from "./app/store";
 
 const container = document.getElementById("root");
