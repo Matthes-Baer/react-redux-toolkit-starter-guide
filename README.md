@@ -1,3 +1,3 @@
-# Repository to follow along for my "React Unit Test Handbook + Redux Testing Toolkit" article
+# Repository to follow along with my "React Redux Toolkit - Free Starter Guide for Beginners" udemy course
 
-[Article on freeCodeCamp](https://www.freecodecamp.org/news/how-to-write-unit-tests-in-react-redux/)
+[Udemy Course](https://www.udemy.com/course/react-redux-toolkit-free-starter-guide-for-beginners/)
